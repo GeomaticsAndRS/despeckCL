@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>C++ API &mdash; despeckCL 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="despeckCL 0.1 documentation" href="index.html" />
+    <link rel="next" title="Python API" href="python_api.html" />
+    <link rel="prev" title="Welcome to despeckCL’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="python_api.html" title="Python API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to despeckCL’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">despeckCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="c-api">
+<h1>C++ API<a class="headerlink" href="#c-api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="_CPPv26boxcarPfPfPfPfPfPfKiKiiNSt6vectorINSt6stringEEE">
+<span id="boxcar__floatP.floatP.floatP.floatP.floatP.floatP.iC.iC.i.std::vector:ss:"></span>void <code class="descclassname"></code><code class="descname">boxcar</code><span class="sig-paren">(</span>float *<em>ampl_master</em>, float *<em>ampl_slave</em>, float *<em>phase</em>, float *<em>ref_filt</em>, float *<em>phase_filt</em>, float *<em>coh_filt</em>, <em class="property">const</em> int <em>height</em>, <em class="property">const</em> int <em>width</em>, int <em>window_width</em>, std::vector&lt;std::string&gt; <em>enabled_log_levels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv26boxcarPfPfPfPfPfPfKiKiiNSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters the input with a boxcar filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ampl_master</strong> &#8211; the amplitude of the master image</li>
+<li><strong>ampl_slave</strong> &#8211; the amplitude of the slave image</li>
+<li><strong>phase</strong> &#8211; the interferometric phase of the master and slave images</li>
+<li><strong>ref_filt</strong> &#8211; the filtered reflectivity estimate</li>
+<li><strong>phase_filt</strong> &#8211; the interferometric phase estimate</li>
+<li><strong>coh_filt</strong> &#8211; the coherence estimate</li>
+<li><strong>height</strong> &#8211; height of the images</li>
+<li><strong>width</strong> &#8211; width of the images</li>
+<li><strong>window_width</strong> &#8211; the window width of the boxcar window, has to be an odd number</li>
+<li><strong>enabled_log_levels</strong> &#8211; enabled log levels, log levels are: error, fatal, warning, debug, info</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv27nlinsarPfPfPfPfPfPfKiKiKiKiKiKiNSt6vectorINSt6stringEEE">
+<span id="nlinsar__floatP.floatP.floatP.floatP.floatP.floatP.iC.iC.iC.iC.iC.iC.std::vector:ss:"></span>int <code class="descclassname"></code><code class="descname">nlinsar</code><span class="sig-paren">(</span>float *<em>ampl_master</em>, float *<em>ampl_slave</em>, float *<em>phase</em>, float *<em>ref_filt</em>, float *<em>phase_filt</em>, float *<em>coh_filt</em>, <em class="property">const</em> int <em>height</em>, <em class="property">const</em> int <em>width</em>, <em class="property">const</em> int <em>search_window_size</em>, <em class="property">const</em> int <em>patch_size</em>, <em class="property">const</em> int <em>niter</em>, <em class="property">const</em> int <em>lmin</em>, std::vector&lt;std::string&gt; <em>enabled_log_levels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv27nlinsarPfPfPfPfPfPfKiKiKiKiKiKiNSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters the input with the NLInSAR filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ampl_master</strong> &#8211; the amplitude of the master image</li>
+<li><strong>ampl_slave</strong> &#8211; the amplitude of the slave image</li>
+<li><strong>phase</strong> &#8211; the interferometric phase of the master and slave images</li>
+<li><strong>ref_filt</strong> &#8211; the filtered reflectivity estimate</li>
+<li><strong>phase_filt</strong> &#8211; the interferometric phase estimate</li>
+<li><strong>coh_filt</strong> &#8211; the coherence estimate</li>
+<li><strong>height</strong> &#8211; height of the images</li>
+<li><strong>width</strong> &#8211; width of the images</li>
+<li><strong>search_window_size</strong> &#8211; width of the search window, has to be an odd number</li>
+<li><strong>patch_size</strong> &#8211; width of the patch, has to be an odd number</li>
+<li><strong>niter</strong> &#8211; number of iterations</li>
+<li><strong>lmin</strong> &#8211; minimum number of looks for the smoothing step</li>
+<li><strong>enabled_log_levels</strong> &#8211; enabled log levels, log levels are: error, fatal, warning, debug, info</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv25nlsarPfPfPfPfPfPfKiKiKiKNSt6vectorIiEEKNSt6vectorIiEENSt3mapIN5nlsar6paramsEN5nlsar5statsEEENSt6vectorINSt6stringEEE">
+<span id="nlsar__floatP.floatP.floatP.floatP.floatP.floatP.iC.iC.iC.std::vector:i:C.std::vector:i:C.std::map:nlsar::params.nlsar::stats:.std::vector:ss:"></span>int <code class="descclassname"></code><code class="descname">nlsar</code><span class="sig-paren">(</span>float *<em>ampl_master</em>, float *<em>ampl_slave</em>, float *<em>phase</em>, float *<em>ref_filt</em>, float *<em>phase_filt</em>, float *<em>coh_filt</em>, <em class="property">const</em> int <em>height</em>, <em class="property">const</em> int <em>width</em>, <em class="property">const</em> int <em>search_window_size</em>, <em class="property">const</em> std::vector&lt;int&gt; <em>patch_sizes</em>, <em class="property">const</em> std::vector&lt;int&gt; <em>scale_sizes</em>, std::map&lt;<a class="reference internal" href="#_CPPv25nlsarPfPfPfPfPfPfKiKiKiKNSt6vectorIiEEKNSt6vectorIiEENSt3mapIN5nlsar6paramsEN5nlsar5statsEEENSt6vectorINSt6stringEEE" title="nlsar">nlsar</a>::params, <a class="reference internal" href="#_CPPv25nlsarPfPfPfPfPfPfKiKiKiKNSt6vectorIiEEKNSt6vectorIiEENSt3mapIN5nlsar6paramsEN5nlsar5statsEEENSt6vectorINSt6stringEEE" title="nlsar">nlsar</a>::stats&gt; <em>nlsar_stats</em>, std::vector&lt;std::string&gt; <em>enabled_log_levels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv25nlsarPfPfPfPfPfPfKiKiKiKNSt6vectorIiEEKNSt6vectorIiEENSt3mapIN5nlsar6paramsEN5nlsar5statsEEENSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters the input with the NLSAR filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ampl_master</strong> &#8211; the amplitude of the master image</li>
+<li><strong>ampl_slave</strong> &#8211; the amplitude of the slave image</li>
+<li><strong>phase</strong> &#8211; the interferometric phase of the master and slave images</li>
+<li><strong>ref_filt</strong> &#8211; the filtered reflectivity estimate</li>
+<li><strong>phase_filt</strong> &#8211; the interferometric phase estimate</li>
+<li><strong>coh_filt</strong> &#8211; the coherence estimate</li>
+<li><strong>height</strong> &#8211; height of the images</li>
+<li><strong>width</strong> &#8211; width of the images</li>
+<li><strong>search_window_size</strong> &#8211; width of the search window, has to be an odd number</li>
+<li><strong>patch_sizes</strong> &#8211; widths of the patches, have to be odd numbers</li>
+<li><strong>scale_sizes</strong> &#8211; widths of the scales, have to be odd numbers</li>
+<li><strong>std::map&lt;nlsar::params, nlsar::stats&gt; nlsar_stats</strong> &#8211; statistics computed on homogenous training area for all parameters</li>
+<li><strong>enabled_log_levels</strong> &#8211; enabled log levels, log levels are: error, fatal, warning, debug, info</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214nlsar_trainingPfPfPfKiKiKNSt6vectorIiEEKNSt6vectorIiEE">
+<span id="nlsar_training__floatP.floatP.floatP.iC.iC.std::vector:i:C.std::vector:i:C"></span>std::map&lt;params, stats&gt; <code class="descclassname"></code><code class="descname">nlsar_training</code><span class="sig-paren">(</span>float *<em>ampl_master</em>, float *<em>ampl_slave</em>, float *<em>phase</em>, <em class="property">const</em> int <em>height</em>, <em class="property">const</em> int <em>width</em>, <em class="property">const</em> std::vector&lt;int&gt; <em>patch_sizes</em>, <em class="property">const</em> std::vector&lt;int&gt; <em>scale_sizes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214nlsar_trainingPfPfPfKiKiKNSt6vectorIiEEKNSt6vectorIiEE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the NL-SAR weighting kernel on a homogeneous area</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ampl_master</strong> &#8211; the amplitude of the master image</li>
+<li><strong>ampl_slave</strong> &#8211; the amplitude of the slave image</li>
+<li><strong>phase</strong> &#8211; the interferometric phase of the master and slave images</li>
+<li><strong>patch_sizes</strong> &#8211; widths of the patches, have to be odd numbers</li>
+<li><strong>scale_sizes</strong> &#8211; widths of the scales, have to be odd numbers</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv29goldsteinPfPfPfPfPfPfKjKjKjKjKfNSt6vectorINSt6stringEEE">
+<span id="goldstein__floatP.floatP.floatP.floatP.floatP.floatP.unsigned-iC.unsigned-iC.unsigned-iC.unsigned-iC.floatC.std::vector:ss:"></span>int <code class="descclassname"></code><code class="descname">goldstein</code><span class="sig-paren">(</span>float *<em>ampl_master</em>, float *<em>ampl_slave</em>, float *<em>phase</em>, float *<em>ref_filt</em>, float *<em>phase_filt</em>, float *<em>coh_filt</em>, <em class="property">const</em> unsigned int <em>height</em>, <em class="property">const</em> unsigned int <em>width</em>, <em class="property">const</em> unsigned int <em>patch_size</em>, <em class="property">const</em> unsigned int <em>overlap</em>, <em class="property">const</em> float <em>alpha</em>, std::vector&lt;std::string&gt; <em>enabled_log_levels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29goldsteinPfPfPfPfPfPfKjKjKjKjKfNSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters the input with the Goldstein filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ampl_master</strong> &#8211; the amplitude of the master image</li>
+<li><strong>ampl_slave</strong> &#8211; the amplitude of the slave image</li>
+<li><strong>phase</strong> &#8211; the interferometric phase of the master and slave images</li>
+<li><strong>ref_filt</strong> &#8211; the filtered reflectivity estimate</li>
+<li><strong>phase_filt</strong> &#8211; the interferometric phase estimate</li>
+<li><strong>coh_filt</strong> &#8211; the coherence estimate</li>
+<li><strong>patch_size</strong> &#8211; width of the patch for each 2D FFT</li>
+<li><strong>overlap</strong> &#8211; overlap of the patches</li>
+<li><strong>alpha</strong> &#8211; strength of filtering</li>
+<li><strong>enabled_log_levels</strong> &#8211; enabled log levels, log levels are: error, fatal, warning, debug, info</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a tuple containing the reflectivy, phase and coherence estimates</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Rtype:</th><td class="field-body"><p class="first last">tuple of ndarrays</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to despeckCL&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="python_api.html"
+                        title="next chapter">Python API</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cpp_api.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="python_api.html" title="Python API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to despeckCL’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">despeckCL 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gerald Baier.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+  </body>
+</html>
